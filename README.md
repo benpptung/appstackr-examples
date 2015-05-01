@@ -35,6 +35,7 @@ $ npm run appstack -- -bf example:js
 
 ### Prepare to deploy to CDN
 
+
 run the following commands
 
 ```
@@ -42,6 +43,9 @@ $ npm run appbuild
 
 $ npm start
 ```
+
+update `appstackr-setting.json` with `{ cdn: [ the cdn url ] }`, and re-run the `npm run appbuild` command to build.
+
 Deploy the public files to a CDN server, it's done.
 
 
