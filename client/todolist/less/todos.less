@@ -1,0 +1,234 @@
+@import "./variables";
+@import "./mixins";
+
+@todoapp-bg: darken(@brand-primary, 30%);
+@todoapp-list-bg: lighten(@todoapp-bg, 12%);
+@todoapp-footer-bg: @brand-success;
+@todoapp-footer-border-color: @todoapp-footer-bg;
+
+@todoapp-state-text-color: @gray-light;
+@todoapp-state-text-size: 1.2em;
+
+.todoapp {
+  padding: 20px;
+  margin-bottom: 40px;
+  border: 1px solid @todoapp-bg;
+
+  background-color: @todoapp-bg;
+
+  .box-shadow(rgba(0, 0, 0, 0.2) 0 2px 6px 0);
+  .border-top-radius(5px);
+  .border-bottom-radius(5px);
+
+  header {
+
+    margin-top: -7px;
+
+    h1 {
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+      padding: 0 0 10px 0;
+      margin: 0;
+      color: @gray-dark
+    }
+  }
+
+  input[type="text"] {
+    color: #000000;
+    width: 100%;
+    font-size: 24px;
+    font-family: inherit;
+    line-height: 1.4em;
+    border: 0;
+    outline: none;
+    padding: 6px;
+    border: 1px solid #999999;
+
+    .box-shadow(rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset);
+  }
+
+  input::-webkit-input-placeholder {
+    font-style: italic;
+  }
+
+  .main {
+    display: none;
+
+    &.show {
+      display: block;
+    }
+  }
+
+  .todo-list {
+    margin: 10px 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .todo-list > li {
+    position: relative;
+    background-color: @todoapp-list-bg;
+
+    .animated.hinge {
+      animation-duration: 1s;
+    }
+
+    label {
+      color: @gray-darker;
+      font-size: 1.3em;
+    }
+
+    &.done label {
+      color: @gray-light;
+      text-decoration: line-through;
+    }
+
+    &:hover {
+      display: block;
+      text-decoration: none;
+
+      .destroy, .pencil {
+        display: block;
+      }
+    }
+
+    span.todo-note {
+      margin-right: 100px;
+      margin-left: 20px;
+    }
+
+    span.todo-state {
+      color: @todoapp-state-text-color;
+      display: block;
+      position: absolute;
+      right: 70px;
+      top: 2px;
+      font-size: @todoapp-state-text-size;
+    }
+
+    .edit {
+      display: none;
+    }
+
+    .destroy, .pencil {
+      position: absolute;
+      display: none;
+      cursor: pointer;
+    }
+
+    &.touch-device .destroy, &.touch-device .pencil{
+      display: block;
+    }
+
+    .destroy {
+      right: 5px;
+      font-size: 1.3em;
+      top: 0;
+    }
+
+    .pencil {
+      right: 35px;
+      font-size: 1.05em;
+      top: 2px;
+    }
+  }
+
+  .todo-list > li.editing {
+    border-bottom: none;
+    margin-top: -1px;
+    padding: 0;
+
+    &:last-child {
+      margin-bottom: -1px;
+    }
+
+    .edit {
+      display: block;
+      padding: 13px 15px 14px 20px;
+      margin: 0;
+    }
+
+    .view {
+      display: none;
+    }
+
+    .view label {
+      word-break: keep-all;
+    }
+  }
+
+  footer {
+    display: none;
+    margin: 0 -21px -21px -21px;
+    overflow: hidden;
+    color: @gray-dark;
+    background: @todoapp-footer-bg;
+    padding: 0 20px;
+    line-height: 37px;
+    border-radius: 0 0 5px 5px;
+
+    border-bottom-color: @todoapp-footer-border-color;
+    border-left-color: @todoapp-footer-border-color;
+    border-right-color: @todoapp-footer-border-color;
+
+  }
+
+  .clear-completed {
+    float: right;
+    line-height: 20px;
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.1);
+    color: #555555;
+    font-size: 11px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 0 10px 1px;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0 0;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+      box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0 0;
+    }
+
+    &:active {
+      position: relative;
+      top: 1px;
+    }
+  }
+
+  .todo-count {
+
+    font-size: 1.1em;
+
+    b {
+      font-size: 1.3em;
+    }
+
+    .instructions {
+      margin-left: 20px;
+      color: #777777;
+      text-shadow: rgba(255, 255, 255, 0.8) 0 1px 0;
+      font-size: 0.8em;
+
+      @media (max-width: @screen-xs-max) {
+        display: block;
+        margin-left: 0;
+      }
+    }
+  }
+
+  .toggle-all-wrapper {
+
+    color: @gray;
+    margin-top: 3px;
+
+    .toggle-all {
+      margin-right: 3px;
+    }
+  }
+}
+

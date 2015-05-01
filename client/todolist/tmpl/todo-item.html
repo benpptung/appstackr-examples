@@ -1,0 +1,14 @@
+<div class="view checkbox">
+    <label class="text-info">
+        <input class="toggle" type="checkbox" <%= done? 'checked="checked"' : '' %> >
+        <span class="todo-note"><%=title %></span>
+    </label>
+    <span class="todo-state">
+            <% if (state == 'saving' || ( state == 'unsaved' && warning == 'unsaved' )) { %>
+            <%=state %>
+            <% } %>
+    </span>
+    <button type="button" class="pencil glyphicon glyphicon-pencil close"></button>
+    <button type="button" class="destroy glyphicon glyphicon-remove close"></button>
+</div>
+<input class="edit" type="text" value="<%=title %>">

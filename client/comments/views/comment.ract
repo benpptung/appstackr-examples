@@ -1,0 +1,4 @@
+<div class="comment-block animated {{ isNew ? 'bounce' : 'fadeInRightBig'}}">
+    <h4 class="comment-author">{{author}}</h4>
+    <div class="comment-text">{{{ marked(text) }}}</div>
+</div>

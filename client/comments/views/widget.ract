@@ -1,0 +1,15 @@
+
+  {{#each comments}}
+    <Comment author="{{author}}" text="{{text}}" />
+  {{/each}}
+
+<form on-submit="post(event, {author: author, text: text})">
+    <!-- author name -->
+    <input class="author-name" value="{{author}}" placeholder="Your name" required>
+
+    <!-- comment body -->
+    <textarea value="{{text}}" placeholder="Say something..." required></textarea>
+
+    <!-- submit comment button -->
+    <input class="btn btn-success" type="submit" value="Submit">
+</form>

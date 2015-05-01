@@ -1,0 +1,7 @@
+<% if (done) { %>
+<a class="clear-completed">Clear <%=done %> completed <%= done == 1 ? 'item' : 'items' %></a>
+<% } %>
+<div class="todo-count">
+    <b><%= remaining %></b>&nbsp; <%= remaining == 1 ? 'item' : 'items' %> left
+    <span class="instructions">Tip: drag the Todo list to sort</span>
+</div>

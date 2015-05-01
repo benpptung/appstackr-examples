@@ -1,0 +1,46 @@
+@import "./variables";
+
+form {
+
+  @media (min-width: $screen-xs) {
+    position: relative;
+    padding: 0 0 0 10.5em;
+  }
+}
+
+textarea {
+  font-size: inherit;
+  font-family: inherit;
+  width: 100%;
+  height: 5em;
+  padding: 0.5em;
+  border: 1px solid $gray-lighter;
+  box-shadow: inset 1px 1px 3px rgba( 0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  font-family: $font-family-life-savers;
+  color: $gray;
+  cursor: pointer;
+}
+
+.author-name {
+
+  margin: 10px 0;
+
+  @media (min-width: $screen-xs) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: inherit;
+    font-family: inherit;
+    width: 10em;
+    padding: 0.5em;
+    margin: 0;
+    border: 1px solid $gray-lighter;
+    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+  }
+}
+
