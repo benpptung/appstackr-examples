@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "animate.css": "^3.2.5",
-    "appstackr": "../appstackr",
+    "appstackr": "^0.3.3",
     "bootstrap-sass": "^3.3.4",
     "component-emitter": "^1.2.0",
     "expect.js": "^0.3.1",
