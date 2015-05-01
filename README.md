@@ -5,7 +5,7 @@ As an example to see the powerful appstackr
 ### Install
 
 ```
-$ git clone https://github.com/benpptung/appstackr-example.git /tmp/appstackr-examples
+$ git clone https://github.com/benpptung/appstackr-examples.git /tmp/appstackr-examples
 
 $ cd /tmp/appstackr-examples/
 
