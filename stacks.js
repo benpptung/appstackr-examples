@@ -35,8 +35,7 @@ module.exports = [
     nature: 'js',
     files: [
       'node_modules/html5shiv/dist/html5shiv.min.js',
-      'node_modules/respond.js/dest/respond.matchmedia.addListener.min.js',
-      'ie8'
+      'node_modules/respond.js/dest/respond.matchmedia.addListener.min.js'
     ]
   },
   {

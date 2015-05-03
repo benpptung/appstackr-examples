@@ -30,7 +30,6 @@
     "component-emitter": "^1.2.0",
     "expect.js": "^0.3.1",
     "html5shiv": "^3.7.2",
-    "ie8": "git://github.com/WebReflection/ie8",
     "insert-css": "^0.2.0",
     "iscroll": "^5.1.3",
     "json-stringify-safe": "^5.0.0",
