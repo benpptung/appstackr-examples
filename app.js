@@ -12,7 +12,6 @@ var cors = require('cors');
 
 var routes = require('./routes');
 var app = express();
-var public_dir = app.get('env') == 'production' ? join(__dirname, 'dist', 'public') : join(__dirname, 'public');
 var view_dir = app.get('env') == 'production' ? join(__dirname, 'dist', 'views') : join(__dirname, 'views');
 
 // app setup
@@ -32,7 +31,11 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(public_dir));
+
+if (app.get('env') != 'production') {
+  app.use(express.static(join(__dirname, 'public')));
+}
+
 app.use(function(req, res, next) {
   res.set({
     "Cache-Control": "private, no-cache, no-store, must-revalidate",

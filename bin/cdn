@@ -4,17 +4,31 @@
  * Module dependencies.
  */
 var http = require('http');
-
-var debug = require('debug')('appstackr-examples:bin/www');
+var express = require('express');
+var debug = require('debug')('appstackr-examples:bin/cdn');
+var join = require('path').join;
+var logger = require('morgan');
 var colors = require('colors');
 
-var app = require('../app');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var app = express();
+var port = 3001;
+
+app.use(logger('dev'));
+app.use(express.static(join(__dirname, '..', 'dist', 'public')));
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+app.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+  res.send(err);
+});
 app.set('port', port);
 
 /**
@@ -31,25 +45,6 @@ server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
-/**
- * Normalize a port into a number, string, or false.
- */
-
-function normalizePort(val) {
-  var port = parseInt(val, 10);
-
-  if (isNaN(port)) {
-    // named pipe
-    return val;
-  }
-
-  if (port >= 0) {
-    // port number
-    return port;
-  }
-
-  return false;
-}
 
 /**
  * Event listener for HTTP server "error" event.
@@ -89,7 +84,5 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
-  if (app.get('env') == 'production') {
-    console.log('Running in production mode listening on %s'.green, bind)
-  }
+  console.log('Running temp cdn server listening on %s'.green, bind);
 }

@@ -12,17 +12,35 @@ $ cd /tmp/appstackr-examples/
 $ npm install
 ```
 
-### Develop the project
-
-- Use an IDE or text editor to open the appstackr-example project.
-- delete `appstackr-settings.json` if not using Mac
-- run the following commands to start
+### Developing the project under browser-sync
 
 ```
 $ npm run appstack
 
 $ npm run bsync
 ```
+
+Use an IDE or text editor to open the appstackr-example project. Edit the files under `client` or `views` folder. e.g. `views/index.swig`
+
+### Run with a CDN server
+
+
+```
+$ npm run appbuild
+
+$ npm run cdn
+```
+
+A temp cdn server is running on port 3001 now
+
+Open another shell, run the following command
+
+```
+$ NODE_ENV=production npm start
+```
+
+Open `localhost:3000` in a browser.
+Open `browser debug console`. Now all the public assets are from the cdn server `localhost:3001` with a version hash. 
 
 ### Debug
 
@@ -31,23 +49,3 @@ appstackr has no source map. To figure out what's wrong, use the following comma
 ```
 $ npm run appstack -- -bf example:js
 ```
-
-
-### Prepare to deploy to CDN
-
-
-run the following commands
-
-```
-$ npm run appbuild
-
-$ npm start
-```
-
-update `appstackr-setting.json` with `{ cdn: [ the cdn url ] }`, and re-run the `npm run appbuild` command to build.
-
-Deploy the public files to a CDN server, it's done.
-
-
-appstackr is just a personal tool, not to replace other famous or popular tools. It is just a tool to save my time to use Grunt/gulp/webpack or other similar tools.
-In my opinion, Grunt/gulp is designed for lib development, but not good for web site/app development.

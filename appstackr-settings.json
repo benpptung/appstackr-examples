@@ -1,5 +1,3 @@
 {
-  "bsync": {
-    "browser": "safari"
-  }
+  "cdn": "localhost:3001"
 }
