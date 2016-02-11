@@ -1,6 +1,6 @@
 {
   "name": "appstackr-examples",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "scripts": {
     "start": "DEBUG=appstackr-examples:* node ./bin/www",
     "appbuild": "appbuild",
@@ -20,7 +20,7 @@
     "cors": "^2.5.3",
     "debug": "~2.1.1",
     "domain-http-server": "^1.0.0",
-    "express": "~4.12.2",
+    "express": "^4.13.4",
     "extend": "^2.0.0",
     "morgan": "~1.5.1",
     "serve-favicon": "~2.2.0",
@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "animate.css": "^3.2.5",
-    "appstackr": "^0.3.10",
+    "appstackr": "^0.3.16",
     "bootstrap-sass": "^3.3.4",
     "component-emitter": "^1.2.0",
     "expect.js": "^0.3.1",
